@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_100"
+        style="@style/cardViewMainButtons">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackground">
+
+        <ImageView
+                android:id="@+id/imageOwner"
+                android:layout_width="@dimen/width_75"
+                android:layout_height="@dimen/width_75"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/margin_7"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/decryption_image_owner"/>
+
+        <TextView
+                android:id="@+id/textRepositoryName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="@dimen/margin_90"
+                android:layout_marginTop="@dimen/margin_12"
+                android:gravity="center"
+                android:textColor="@color/gitHubBlue"
+                android:textSize="@dimen/text_size_20"
+                android:textStyle="bold"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textRepositoryName"
+                android:layout_alignStart="@+id/textRepositoryName"
+                android:layout_toEndOf="@+id/imageOwner"
+                android:layout_marginTop="@dimen/margin_5"
+                android:textSize="@dimen/text_size_18"
+                android:textColor="@color/gitHubGrey"
+                android:textStyle="bold"
+                android:id="@+id/textOwnerName"/>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/textOwnerName"
+                android:layout_alignStart="@+id/textRepositoryName"
+                android:layout_marginStart="@dimen/margin_0"
+                android:layout_marginTop="@dimen/margin_5"
+                android:layout_marginBottom="@dimen/margin_10">
+
+
+            <ImageView
+                    android:layout_width="@dimen/width_15"
+                    android:layout_height="@dimen/height_15"
+                    android:src="@drawable/ic_language"
+                    android:id="@+id/imageLanguage"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/description_repository_language"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/text_size_12"
+                    android:textColor="@color/gitHubGrey"
+                    android:textStyle="bold"
+                    android:id="@+id/textLanguage"
+                    android:layout_marginStart="@dimen/margin_2"/>
+        </LinearLayout>
+
+        <RelativeLayout
+                android:layout_width="@dimen/width_40"
+                android:layout_height="@dimen/height_40"
+                android:background="@drawable/ic_star"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="@dimen/margin_30"
+                android:layout_marginBottom="@dimen/margin_30"
+                android:layout_alignParentEnd="true"
+                android:gravity="center"
+                android:layout_marginEnd="@dimen/margin_10">
+
+            <TextView
+                    android:id="@+id/textStars"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/text_size_9"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+            />
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

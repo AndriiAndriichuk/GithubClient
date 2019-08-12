@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="decryption_image_owner">Image Owner</string>
+    <string name="search_repositories">Search repositories</string>
+
+    <string name="description_subscribers_image">Subscribers Image</string>
+    <string name="description_forks_image">Forks Image</string>
+    <string name="description_stars_image">Stars Image</string>
+    <string name="description_github_logo">GitHub logo</string>
+    <string name="description_search_repositories">Search repositories</string>
+    <string name="description_repository_language">Repository Language</string>
+
+    <string name="loading">Loading…</string>
+    <string name="please_wait">Please wait…</string>
+    <string name="you_dont_have_internet">You don\'t have Internet connection</string>
+</resources>

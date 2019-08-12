@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="@dimen/width_100"
+        android:layout_height="wrap_content"
+        style="@style/cardViewMainButtons">
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="?attr/selectableItemBackground">
+
+        <ImageView
+                android:id="@+id/imageFollower"
+                android:layout_width="@dimen/width_75"
+                android:layout_height="@dimen/height_75"
+                android:layout_marginStart="@dimen/margin_7"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/decryption_image_owner"
+                android:layout_margin="@dimen/margin_5"/>
+
+        <TextView
+                android:id="@+id/textFollowerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:gravity="center"
+                android:textColor="@color/gitHubBlue"
+                android:textSize="@dimen/text_size_10"
+                android:textStyle="bold"
+                android:layout_margin="@dimen/margin_5"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

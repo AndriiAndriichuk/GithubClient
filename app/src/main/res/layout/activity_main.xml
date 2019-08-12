@@ -51,7 +51,6 @@
                     android:singleLine="true"
                     android:background="@drawable/edit_text_background"
                     android:id="@+id/editSearchRepositories"
-                    android:text="JakeWharton"
                     android:textColor="@color/gitHubText"
                     android:textColorHint="@color/gitHubHint"
                     android:hint="@string/search_repositories"

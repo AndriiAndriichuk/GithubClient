@@ -46,7 +46,6 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical|start"
-                    android:text="sdbsdbsdbsbs"
                     android:textColor="@color/gitHubBlue"
                     android:textSize="@dimen/text_size_20"
                     android:textStyle="bold"/>
@@ -58,7 +57,6 @@
                     android:textSize="@dimen/text_size_18"
                     android:textColor="@color/gitHubGrey"
                     android:textStyle="bold"
-                    android:text="sdbsdbsdbsbs"
                     android:id="@+id/textOwnerName"/>
 
             <LinearLayout
@@ -83,7 +81,6 @@
                         android:textStyle="bold"
                         android:gravity="center_vertical|start"
                         android:id="@+id/textLanguage"
-                        android:text="sdbsdbsdbsbs"
                         android:layout_marginStart="@dimen/margin_2"/>
             </LinearLayout>
         </LinearLayout>

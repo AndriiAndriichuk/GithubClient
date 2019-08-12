@@ -162,6 +162,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_10"
+                android:text="@string/subscribers"
                 android:textSize="@dimen/text_size_12"
                 android:textColor="@color/gitHubGrey"
                 android:layout_gravity="center_vertical|start"

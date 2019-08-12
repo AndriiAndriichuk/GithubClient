@@ -28,7 +28,7 @@
                     android:layout_width="@dimen/width_48"
                     android:layout_height="@dimen/height_48"
                     android:padding="@dimen/padding_7"
-                    android:src="@drawable/cat"
+                    android:src="@drawable/ic_github"
                     android:clickable="true"
                     android:focusable="true"
                     android:background="@drawable/ripple"

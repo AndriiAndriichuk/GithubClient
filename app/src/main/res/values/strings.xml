@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">GitHub client</string>
     <string name="decryption_image_owner">Image Owner</string>
     <string name="search_repositories">Search repositories</string>
 

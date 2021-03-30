@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/nav_graph.xml"
+        app:startDestination="@id/searchFragment">
+
+    <action
+            android:id="@+id/toProfileInfoFragment"
+            app:destination="@id/repositoryInfoFragment" />
+
+    <fragment
+            android:id="@+id/searchFragment"
+            android:name="com.ciuc.andrii.myapplication.ui.fragment.search.ProfileListFragment"
+            android:label="SearchFragment" />
+    <fragment
+            android:id="@+id/repositoryInfoFragment"
+            android:name="com.ciuc.andrii.myapplication.ui.fragment.repository_info.RepositoryInfoFragment"
+            android:label="ProfileInfoFragment">
+
+        <argument
+                android:name="repositoryDto"
+                android:defaultValue="@null"
+                app:argType="com.ciuc.andrii.myapplication.client.models.gh_repository.RepositoryDTO"
+                app:nullable="true" />
+
+    </fragment>
+</navigation>

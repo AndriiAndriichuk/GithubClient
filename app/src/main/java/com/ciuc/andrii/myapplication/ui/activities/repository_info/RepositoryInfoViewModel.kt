@@ -9,12 +9,15 @@ import com.ciuc.andrii.myapplication.App
 import com.ciuc.andrii.myapplication.client.models.followers.Subscriber
 import com.ciuc.andrii.myapplication.repository.ProductRepository
 import com.ciuc.andrii.myapplication.repository.ProductRepositoryImpl
+import com.ciuc.andrii.myapplication.repository.SharedStorage
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
 
-class RepositoryInfoViewModel : ViewModel() {
+class RepositoryInfoViewModel(private var dataRepository: ProductRepositoryImpl,
+                              private val sharedStorage: SharedStorage
+) : ViewModel() {
 
     private var callbackFollowers = MutableLiveData<List<Subscriber>>()
 

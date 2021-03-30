@@ -1,7 +1,10 @@
 package com.ciuc.andrii.myapplication.client.models.owner
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 class Owner(
     @SerializedName("login") var login: String,
     @SerializedName("id") var id: Int = 0,
@@ -20,4 +23,4 @@ class Owner(
     @SerializedName("received_events_url") var receivedEventsUrl: String,
     @SerializedName("type") var type: String,
     @SerializedName("site_admin") var siteAdmin: Boolean = false
-)
+): Parcelable

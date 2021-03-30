@@ -13,8 +13,6 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name="com.ciuc.andrii.myapplication.ui.activities.repository_info.RepositoryInfoActivity">
-        </activity>
         <activity android:name="com.ciuc.andrii.myapplication.ui.activities.main.MainActivity"
                   android:windowSoftInputMode="stateAlwaysHidden|adjustPan" >
             <intent-filter>

@@ -1,29 +1,15 @@
 package com.ciuc.andrii.myapplication.ui.activities.main
 
 import android.app.ProgressDialog
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.view.inputmethod.EditorInfo
-import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.chootdev.recycleclick.RecycleClick
 import com.ciuc.andrii.myapplication.R
-import com.ciuc.andrii.utils.Constants.Companion.listRepositories
-import com.ciuc.andrii.utils.Constants.Companion.repositoryDTO
-import com.ciuc.andrii.utils.toast
-import com.ciuc.andrii.myapplication.ui.activities.repository_info.RepositoryInfoActivity
-import com.ciuc.andrii.myapplication.ui.activities.repository_info.adapters.RepositoryAdapter
-import kotlinx.android.synthetic.main.activity_main.*
+import org.koin.android.ext.android.inject
 
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var mainViewModel: MainViewModel
+    private val mainViewModel: MainViewModel by inject()
 
     lateinit var progressDialog: ProgressDialog
 
@@ -31,11 +17,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        mainViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
-        supportActionBar?.hide()
-
-        progressDialog = ProgressDialog(this)
+      /*  progressDialog = ProgressDialog(this)
         progressDialog.setTitle(resources.getString(R.string.loading))
         progressDialog.setMessage(resources.getString(R.string.please_wait))
         progressDialog.setCancelable(false)
@@ -61,29 +44,8 @@ class MainActivity : AppCompatActivity() {
         RecycleClick.addTo(recyclerView).setOnItemClickListener { _, position, _ ->
             repositoryDTO = listRepositories[position]
             startActivity(Intent(this@MainActivity, RepositoryInfoActivity::class.java))
-        }
+        }*/
     }
 
-    private fun searchRepositories(text: String) {
-        hideSoftKeyboard(editSearchRepositories)
-        progressDialog.show()
-        if (mainViewModel.hasNetworkConnection()) {
-            mainViewModel.getRepositories(text).observe(this, androidx.lifecycle.Observer {
-                if (it != null) {
-                    listRepositories = it
-                    val adapter = RepositoryAdapter(listRepositories)
-                    recyclerView.adapter = adapter
-                }
-                progressDialog.cancel()
-            })
-        } else {
-            progressDialog.cancel()
-            toast(resources.getString(R.string.you_dont_have_internet))
-        }
-    }
 
-    private fun hideSoftKeyboard(view: View) {
-        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(view.windowToken, 0)
-    }
 }

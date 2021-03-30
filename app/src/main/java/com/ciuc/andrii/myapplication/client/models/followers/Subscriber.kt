@@ -1,7 +1,10 @@
 package com.ciuc.andrii.myapplication.client.models.followers
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Subscriber (
     @SerializedName("login") val login : String,
     @SerializedName("id") val id : Int,
@@ -21,4 +24,4 @@ data class Subscriber (
     @SerializedName("received_events_url") val receivedEventsUrl : String,
     @SerializedName("type") val type : String,
     @SerializedName("site_admin") val siteAdmin : Boolean
-)
+): Parcelable

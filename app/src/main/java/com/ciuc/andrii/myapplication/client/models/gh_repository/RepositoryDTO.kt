@@ -1,8 +1,11 @@
 package com.ciuc.andrii.myapplication.client.models.gh_repository
 
+import android.os.Parcelable
 import com.ciuc.andrii.myapplication.client.models.owner.Owner
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 class RepositoryDTO(
     @SerializedName("id") var id: Int? = 0,
     @SerializedName("name") var name: String?,
@@ -67,11 +70,11 @@ class RepositoryDTO(
     @SerializedName("has_wiki") var hasWiki: Boolean? = false,
     @SerializedName("has_pages") var hasPages: Boolean? = false,
     @SerializedName("forks_count") var forksCount: Int? = 0,
-    @SerializedName("mirror_url") var mirrorUrl: Any?,
+    @SerializedName("mirror_url") var mirrorUrl: String?,
     @SerializedName("open_issues_count") var openIssuesCount: Int? = 0,
     @SerializedName("forks") var forks: Int? = 0,
     @SerializedName("open_issues") var openIssues: Int? = 0,
     @SerializedName("watchers") var watchers: Int? = 0,
     @SerializedName("default_branch") var defaultBranch: String?,
     @SerializedName("permissions") var permissions: Permissions?
-)
+): Parcelable

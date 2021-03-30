@@ -7,20 +7,21 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ciuc.andrii.myapplication.App
 import com.ciuc.andrii.myapplication.client.models.gh_repository.RepositoryDTO
-import com.ciuc.andrii.myapplication.repository.ProductRepository
 import com.ciuc.andrii.myapplication.repository.ProductRepositoryImpl
+import com.ciuc.andrii.myapplication.repository.SharedStorage
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
 
-class MainViewModel : ViewModel() {
+class MainViewModel(private var dataRepository: ProductRepositoryImpl,
+                    private val sharedStorage: SharedStorage
+) : ViewModel() {
 
     private var callbackRepositories = MutableLiveData<List<RepositoryDTO>>()
 
     fun getRepositories(organization: String): LiveData<List<RepositoryDTO>> {
-        val repositoryImpl: ProductRepository = ProductRepositoryImpl()
-        var result: Single<List<RepositoryDTO>> = repositoryImpl.getRepositories(organization)
+        var result: Single<List<RepositoryDTO>> = dataRepository.getRepositories(organization)
 
         result.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

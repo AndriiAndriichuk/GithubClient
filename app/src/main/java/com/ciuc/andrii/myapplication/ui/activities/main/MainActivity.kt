@@ -1,4 +1,4 @@
-package com.ciuc.andrii.myapplication.view.activities
+package com.ciuc.andrii.myapplication.ui.activities.main
 
 import android.app.ProgressDialog
 import android.content.Context
@@ -13,11 +13,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chootdev.recycleclick.RecycleClick
 import com.ciuc.andrii.myapplication.R
-import com.ciuc.andrii.myapplication.model.utils.Constants.Companion.listRepositories
-import com.ciuc.andrii.myapplication.model.utils.Constants.Companion.repositoryDTO
-import com.ciuc.andrii.myapplication.model.utils.toast
-import com.ciuc.andrii.myapplication.view.adapters.RepositoryAdapter
-import com.ciuc.andrii.myapplication.viewmodel.MainViewModel
+import com.ciuc.andrii.utils.Constants.Companion.listRepositories
+import com.ciuc.andrii.utils.Constants.Companion.repositoryDTO
+import com.ciuc.andrii.utils.toast
+import com.ciuc.andrii.myapplication.ui.activities.repository_info.RepositoryInfoActivity
+import com.ciuc.andrii.myapplication.ui.activities.repository_info.adapters.RepositoryAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 

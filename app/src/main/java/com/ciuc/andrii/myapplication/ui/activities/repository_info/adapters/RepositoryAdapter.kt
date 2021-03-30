@@ -1,4 +1,4 @@
-package com.ciuc.andrii.myapplication.view.adapters
+package com.ciuc.andrii.myapplication.ui.activities.repository_info.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.ciuc.andrii.myapplication.R
-import com.ciuc.andrii.myapplication.model.data.gh_repository.RepositoryDTO
+import com.ciuc.andrii.myapplication.client.models.gh_repository.RepositoryDTO
 import kotlinx.android.synthetic.main.recycler_view_item_repository.view.*
 
 
@@ -54,5 +54,9 @@ class RepositoryAdapter(
         val textStars: TextView = view.textStars
         val textLanguage: TextView = view.textLanguage
         val imageOwner: ImageView = view.imageOwner
+    }
+
+    interface OnNoteListener {
+        fun onNoteClick(position: Int)
     }
 }

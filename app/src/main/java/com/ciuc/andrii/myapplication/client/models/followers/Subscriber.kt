@@ -1,4 +1,4 @@
-package com.ciuc.andrii.myapplication.model.data.followers
+package com.ciuc.andrii.myapplication.client.models.followers
 
 import com.google.gson.annotations.SerializedName
 

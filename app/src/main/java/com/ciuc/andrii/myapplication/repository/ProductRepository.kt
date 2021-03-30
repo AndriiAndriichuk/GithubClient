@@ -1,7 +1,7 @@
-package com.ciuc.andrii.myapplication.model.repository
+package com.ciuc.andrii.myapplication.repository
 
-import com.ciuc.andrii.myapplication.model.data.followers.Subscriber
-import com.ciuc.andrii.myapplication.model.data.gh_repository.RepositoryDTO
+import com.ciuc.andrii.myapplication.client.models.followers.Subscriber
+import com.ciuc.andrii.myapplication.client.models.gh_repository.RepositoryDTO
 import io.reactivex.Single
 
 interface ProductRepository {

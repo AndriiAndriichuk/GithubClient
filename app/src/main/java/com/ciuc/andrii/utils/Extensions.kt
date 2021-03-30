@@ -1,4 +1,4 @@
-package com.ciuc.andrii.myapplication.model.utils
+package com.ciuc.andrii.utils
 
 import android.content.Context
 import android.widget.Toast

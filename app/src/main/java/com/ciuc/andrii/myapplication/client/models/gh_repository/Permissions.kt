@@ -1,4 +1,4 @@
-package com.ciuc.andrii.myapplication.model.data.gh_repository
+package com.ciuc.andrii.myapplication.client.models.gh_repository
 
 import com.google.gson.annotations.SerializedName
 

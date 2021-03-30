@@ -1,6 +1,6 @@
-package com.ciuc.andrii.myapplication.model.utils
+package com.ciuc.andrii.utils
 
-import com.ciuc.andrii.myapplication.model.data.gh_repository.RepositoryDTO
+import com.ciuc.andrii.myapplication.client.models.gh_repository.RepositoryDTO
 
 class Constants {
     companion object {

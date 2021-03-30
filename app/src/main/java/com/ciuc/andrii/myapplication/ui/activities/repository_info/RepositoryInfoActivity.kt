@@ -1,4 +1,4 @@
-package com.ciuc.andrii.myapplication.view.activities
+package com.ciuc.andrii.myapplication.ui.activities.repository_info
 
 import android.app.ProgressDialog
 import android.os.Bundle
@@ -10,11 +10,10 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.ciuc.andrii.myapplication.R
-import com.ciuc.andrii.myapplication.model.utils.Constants.Companion.repositoryDTO
-import com.ciuc.andrii.myapplication.model.data.followers.Subscriber
-import com.ciuc.andrii.myapplication.model.utils.toast
-import com.ciuc.andrii.myapplication.view.adapters.SubscribersAdapter
-import com.ciuc.andrii.myapplication.viewmodel.RepositoryInfoViewModel
+import com.ciuc.andrii.utils.Constants.Companion.repositoryDTO
+import com.ciuc.andrii.myapplication.client.models.followers.Subscriber
+import com.ciuc.andrii.utils.toast
+import com.ciuc.andrii.myapplication.ui.activities.repository_info.adapters.SubscribersAdapter
 import kotlinx.android.synthetic.main.activity_repository_info.*
 
 class RepositoryInfoActivity : AppCompatActivity() {

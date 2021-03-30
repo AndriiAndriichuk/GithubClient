@@ -1,6 +1,6 @@
-package com.ciuc.andrii.myapplication.model.retrofit
+package com.ciuc.andrii.myapplication.client.retrofit
 
-import com.ciuc.andrii.myapplication.model.utils.Constants.Companion.BASE_URL
+import com.ciuc.andrii.utils.Constants.Companion.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

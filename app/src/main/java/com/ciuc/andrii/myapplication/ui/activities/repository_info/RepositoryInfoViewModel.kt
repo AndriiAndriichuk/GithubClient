@@ -1,4 +1,4 @@
-package com.ciuc.andrii.myapplication.viewmodel
+package com.ciuc.andrii.myapplication.ui.activities.repository_info
 
 import android.content.Context
 import android.net.ConnectivityManager
@@ -6,9 +6,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ciuc.andrii.myapplication.App
-import com.ciuc.andrii.myapplication.model.data.followers.Subscriber
-import com.ciuc.andrii.myapplication.model.repository.ProductRepository
-import com.ciuc.andrii.myapplication.model.repository.ProductRepositoryImpl
+import com.ciuc.andrii.myapplication.client.models.followers.Subscriber
+import com.ciuc.andrii.myapplication.repository.ProductRepository
+import com.ciuc.andrii.myapplication.repository.ProductRepositoryImpl
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

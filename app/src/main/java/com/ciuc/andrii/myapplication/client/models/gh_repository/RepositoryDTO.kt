@@ -1,6 +1,6 @@
-package com.ciuc.andrii.myapplication.model.data.gh_repository
+package com.ciuc.andrii.myapplication.client.models.gh_repository
 
-import com.ciuc.andrii.myapplication.model.data.owner.Owner
+import com.ciuc.andrii.myapplication.client.models.owner.Owner
 import com.google.gson.annotations.SerializedName
 
 class RepositoryDTO(

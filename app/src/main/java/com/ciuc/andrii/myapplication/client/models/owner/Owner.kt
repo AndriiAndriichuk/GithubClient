@@ -1,4 +1,4 @@
-package com.ciuc.andrii.myapplication.model.data.owner
+package com.ciuc.andrii.myapplication.client.models.owner
 
 import com.google.gson.annotations.SerializedName
 

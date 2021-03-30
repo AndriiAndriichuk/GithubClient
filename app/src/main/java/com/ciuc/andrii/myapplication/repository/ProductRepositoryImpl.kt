@@ -1,7 +1,8 @@
 package com.ciuc.andrii.myapplication.repository
 
-import com.ciuc.andrii.myapplication.client.models.followers.Subscriber
 import com.ciuc.andrii.myapplication.client.models.gh_repository.RepositoryDTO
+import com.ciuc.andrii.myapplication.client.models.user.UserSearchItem
+import com.ciuc.andrii.myapplication.client.models.user.UserSearchResponse
 import com.ciuc.andrii.myapplication.client.retrofit.RetrofitAPI
 import com.ciuc.andrii.myapplication.client.retrofit.RetrofitInstance
 import io.reactivex.Single
@@ -14,10 +15,16 @@ class ProductRepositoryImpl : ProductRepository {
             .getRepositories(userName)
     }
 
-    override fun getSubscribers(userName: String): Single<List<Subscriber>> {
+    override fun searchUsers(query: String): Single<UserSearchResponse> {
         return RetrofitInstance.getRetrofit()
             .create(RetrofitAPI::class.java)
-            .getFollowers(userName)
+            .searchUsers(query)
+    }
+
+    override fun searchUsersWithoutQuery(): Single<List<UserSearchItem>> {
+        return RetrofitInstance.getRetrofit()
+            .create(RetrofitAPI::class.java)
+            .searchUsersWithoutQuery()
     }
 
 }

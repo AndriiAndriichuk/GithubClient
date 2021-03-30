@@ -10,4 +10,8 @@
     <color name="gitHubText">#E7E7E7</color>
     <color name="gitHubHint">#72777B</color>
     <color name="gitHubBlue">#36609C</color>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="xeros_grey">#21303E</color>
+    <color name="grey_hover_light">#8DE3E1E1</color>
 </resources>

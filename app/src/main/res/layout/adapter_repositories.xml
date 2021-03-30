@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            style="@style/cardViewMainButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+                android:id="@+id/repositoryRoot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical">
+
+            <ImageView
+                    android:layout_width="@dimen/width_75"
+                    android:layout_height="@dimen/height_75"
+                    android:layout_margin="@dimen/margin_5"
+                    android:layout_marginStart="@dimen/margin_7"
+                    android:contentDescription="@string/decryption_image_owner"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_repository" />
+
+            <TextView
+                    android:id="@+id/textRepositoryName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:textColor="@color/gitHubBlue"
+                    android:textSize="@dimen/text_size_10"
+                    android:textStyle="bold" />
+
+            <ImageView
+                    android:id="@+id/imageLanguage"
+                    android:layout_width="@dimen/width_15"
+                    android:layout_height="@dimen/height_15"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/description_repository_language"
+                    android:src="@drawable/ic_language" />
+
+            <TextView
+                    android:id="@+id/textLanguage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_5"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:textColor="@color/gitHubBlue"
+                    android:textSize="@dimen/text_size_10"
+                    android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

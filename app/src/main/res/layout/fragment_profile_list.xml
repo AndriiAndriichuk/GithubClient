@@ -52,7 +52,7 @@
                         android:layout_marginTop="@dimen/margin_8"
                         android:layout_marginBottom="@dimen/margin_8"
                         android:background="@drawable/edit_text_background"
-                        android:hint="@string/search_repositories"
+                        android:hint="@string/search_users"
                         android:imeOptions="actionSearch"
                         android:inputType="textNoSuggestions"
                         android:paddingStart="@dimen/padding_15"
@@ -90,9 +90,32 @@
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:visibility="visible" />
 
-        </androidx.recyclerview.widget.RecyclerView>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/layoutNoSearch"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_no_search_result" />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginEnd="22dp"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:text="@string/sorry_there_are_no_search_results_please_try_a_different_search" />
+        </LinearLayout>
 
     </LinearLayout>
 </layout>

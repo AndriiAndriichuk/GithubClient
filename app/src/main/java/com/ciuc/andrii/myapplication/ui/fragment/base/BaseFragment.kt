@@ -15,14 +15,10 @@ val navOptionsBuilder = NavOptions.Builder()
 
 open class BaseFragment : Fragment() {
 
-    // protected lateinit var navController: NavController
-
     protected lateinit var connectivityManager: Connect
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
-
         connectivityManager = Connect(requireContext())
     }
 }

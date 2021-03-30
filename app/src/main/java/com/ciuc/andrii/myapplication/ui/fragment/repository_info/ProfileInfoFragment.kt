@@ -14,10 +14,9 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.ciuc.andrii.myapplication.R
-import com.ciuc.andrii.myapplication.client.models.user.UserSearchItem
 import com.ciuc.andrii.myapplication.databinding.FragmentProfileInfoBinding
+import com.ciuc.andrii.myapplication.model.User
 import com.ciuc.andrii.myapplication.ui.fragment.base.BaseFragment
-import com.ciuc.andrii.myapplication.ui.fragment.base.navOptionsBuilder
 import com.ciuc.andrii.myapplication.ui.fragment.repository_info.adapter.RepositoryAdapter
 import com.ciuc.andrii.myapplication.utils.gone
 import com.ciuc.andrii.myapplication.utils.setupUIForHideKeyboard
@@ -34,7 +33,7 @@ class ProfileInfoFragment : BaseFragment() {
 
     private lateinit var layout: FragmentProfileInfoBinding
 
-    private var currentProfile: UserSearchItem? = null
+    private var currentProfile: User? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -72,18 +71,18 @@ class ProfileInfoFragment : BaseFragment() {
             requestOptions = requestOptions.transform(CenterCrop(), RoundedCorners(radius))
 
             Glide.with(this)
-                .load(currentProfile?.avatar_url)
+                .load(currentProfile?.avatar)
                 .centerCrop()
                 .apply(requestOptions)
                 .into(layout.imageUser)
 
-            layout.textUserName.text = currentProfile?.login
+            layout.textUserName.text = currentProfile?.name
         }
     }
 
     private fun setOnClickListeners() {
         layout.textSeeOnWeb.setOnClickListener {
-            openWebBrowser(currentProfile?.html_url.toString())
+            openWebBrowser(currentProfile?.url.toString())
         }
         layout.toolbarUserInfo.onBackClickListener = {
             findNavController().popBackStack()
@@ -110,7 +109,7 @@ class ProfileInfoFragment : BaseFragment() {
 
     private fun getRepositories() {
         if (connectivityManager.isOnline) {
-            viewModel.getRepositories(currentProfile?.login.toString())
+            viewModel.getRepositories(currentProfile?.name.toString())
         } else {
             toast(resources.getString(R.string.you_dont_have_internet))
         }

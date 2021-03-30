@@ -2,7 +2,6 @@ package com.ciuc.andrii.myapplication.repository
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.provider.SyncStateContract
 import com.ciuc.andrii.myapplication.utils.SHARED_PREFERENCES_NAME
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder

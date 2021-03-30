@@ -15,12 +15,14 @@
             android:theme="@style/AppTheme">
         <activity
                 android:name="com.ciuc.andrii.myapplication.ui.activities.main.MainActivity"
-                android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+                android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+                android:screenOrientation="portrait"/>
 
         <activity
                 android:name=".ui.activities.splash.SplashActivity"
                 android:theme="@style/SplashTheme"
-                android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+                android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+                android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

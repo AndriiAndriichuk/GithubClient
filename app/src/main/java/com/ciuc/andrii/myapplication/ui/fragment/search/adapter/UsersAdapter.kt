@@ -9,14 +9,14 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.ciuc.andrii.myapplication.R
-import com.ciuc.andrii.myapplication.client.models.user.UserSearchItem
 import com.ciuc.andrii.myapplication.databinding.AdapterUsersListBinding
+import com.ciuc.andrii.myapplication.model.User
 
 
 class UsersAdapter :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    var list: List<UserSearchItem> = listOf()
-    var onUserClickListener: ((UserSearchItem) -> Unit)? = null
+    var list: List<User> = listOf()
+    var onUserClickListener: ((User) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -30,7 +30,7 @@ class UsersAdapter :
         )
     }
 
-    fun setData(items: List<UserSearchItem>){
+    fun setData(items: List<User>){
         list = listOf()
         list = items
         notifyDataSetChanged()
@@ -57,23 +57,23 @@ class UsersAdapter :
             requestOptions = requestOptions.transform(CenterCrop(), RoundedCorners(radius))
         }
 
-        fun bind(user: UserSearchItem) {
+        fun bind(user: User) {
             setUpView(user)
             setClickListener(user)
         }
 
-        private fun setUpView(user: UserSearchItem) {
+        private fun setUpView(user: User) {
 
-            layout.textUserName.text = user.login
+            layout.textUserName.text = user.name
 
             Glide.with(layout.imageUserAvatar)
-                .load(user.avatar_url)
+                .load(user.avatar)
                 .centerCrop()
                 .apply(requestOptions)
                 .into(layout.imageUserAvatar)
         }
 
-        private fun setClickListener(user: UserSearchItem) {
+        private fun setClickListener(user: User) {
             layout.itemRootView.setOnClickListener { onUserClickListener?.invoke(user) }
         }
     }

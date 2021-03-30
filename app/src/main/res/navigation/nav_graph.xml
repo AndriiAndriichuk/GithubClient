@@ -32,7 +32,7 @@
         <argument
                 android:name="userItem"
                 android:defaultValue="@null"
-                app:argType="com.ciuc.andrii.myapplication.client.models.user.UserSearchItem"
+                app:argType="com.ciuc.andrii.myapplication.model.User"
                 app:nullable="true" />
 
     </fragment>

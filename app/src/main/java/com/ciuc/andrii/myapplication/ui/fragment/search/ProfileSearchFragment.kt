@@ -1,6 +1,5 @@
 package com.ciuc.andrii.myapplication.ui.fragment.search
 
-import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -8,16 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import android.view.inputmethod.InputMethodManager
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ciuc.andrii.myapplication.R
-import com.ciuc.andrii.myapplication.client.models.user.UserSearchItem
 import com.ciuc.andrii.myapplication.databinding.FragmentProfileListBinding
+import com.ciuc.andrii.myapplication.model.User
 import com.ciuc.andrii.myapplication.ui.fragment.base.BaseFragment
-import com.ciuc.andrii.myapplication.ui.fragment.base.navOptionsBuilder
 import com.ciuc.andrii.myapplication.ui.fragment.search.adapter.UsersAdapter
 import com.ciuc.andrii.myapplication.utils.*
 import org.koin.android.ext.android.inject
@@ -122,10 +119,10 @@ class ProfileSearchFragment : BaseFragment() {
         }
     }
 
-    private fun openProfileInfo(userSearchItem: UserSearchItem) {
+    private fun openProfileInfo(user: User) {
         val direction =
-            ProfileSearchFragmentDirections.toProfileInfoFragment(userSearchItem)
-        findNavController().navigate(direction/*.actionId, null, navOptionsBuilder.build()*/)
+            ProfileSearchFragmentDirections.toProfileInfoFragment(user)
+        findNavController().navigate(direction)
     }
 
 

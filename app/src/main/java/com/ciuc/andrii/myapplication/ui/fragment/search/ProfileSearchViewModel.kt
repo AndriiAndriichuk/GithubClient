@@ -3,6 +3,8 @@ package com.ciuc.andrii.myapplication.ui.fragment.search
 import androidx.lifecycle.ViewModel
 import com.ciuc.andrii.myapplication.client.models.user.UserSearchItem
 import com.ciuc.andrii.myapplication.client.models.user.UserSearchResponse
+import com.ciuc.andrii.myapplication.mappers.UserMapper
+import com.ciuc.andrii.myapplication.model.User
 import com.ciuc.andrii.myapplication.repository.ProductRepositoryImpl
 import com.ciuc.andrii.myapplication.repository.SharedStorage
 import com.ciuc.andrii.myapplication.utils.SingleLiveEvent
@@ -16,7 +18,7 @@ class ProfileSearchViewModel(
     private val sharedStorage: SharedStorage
 ) : ViewModel() {
 
-    var usersLiveData = SingleLiveEvent<List<UserSearchItem>>()
+    var usersLiveData = SingleLiveEvent<List<User>>()
     var errorLiveData = SingleLiveEvent<String>()
 
     fun getUsers(query: String) {
@@ -31,7 +33,7 @@ class ProfileSearchViewModel(
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ result ->
                 Timber.d("repositories -> %s", result.toString())
-                usersLiveData.value = result.items
+                usersLiveData.value = result.items.map { UserMapper.toUser(it) }
             }, { error ->
                 Timber.d("repositories error -> %s", error)
                 errorLiveData.postValue(error.message)
@@ -45,7 +47,7 @@ class ProfileSearchViewModel(
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ result ->
                 Timber.d("repositories -> %s", result.toString())
-                usersLiveData.value = result
+                usersLiveData.value = result.map { UserMapper.toUser(it) }
             }, { error ->
                 Timber.d("repositories error -> %s", error)
                 errorLiveData.postValue(error.message)

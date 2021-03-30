@@ -9,14 +9,14 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.ciuc.andrii.myapplication.R
-import com.ciuc.andrii.myapplication.client.models.gh_repository.RepositoryDTO
+import com.ciuc.andrii.myapplication.client.models.repository.RepositoryD
 import com.ciuc.andrii.myapplication.databinding.AdapterRepositoriesBinding
 
 class RepositoryAdapter() :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    var list: List<RepositoryDTO> = listOf()
+    var list: List<RepositoryD> = listOf()
     lateinit var context: Context
-    var onRepositoryClick: ((RepositoryDTO) -> Unit)? = null
+    var onRepositoryClick: ((RepositoryD) -> Unit)? = null
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -31,7 +31,8 @@ class RepositoryAdapter() :
         )
     }
 
-    fun setData(items: List<RepositoryDTO>){
+    fun setData(items: List<RepositoryD>){
+        list = listOf()
         list = items
         notifyDataSetChanged()
     }
@@ -57,17 +58,17 @@ class RepositoryAdapter() :
             requestOptions = requestOptions.transform(CenterCrop(), RoundedCorners(radius))
         }
 
-        fun bind(repository: RepositoryDTO) {
+        fun bind(repository: RepositoryD) {
             setUpView(repository)
             setClickListener(repository)
         }
 
-        private fun setUpView(repository: RepositoryDTO) {
+        private fun setUpView(repository: RepositoryD) {
             layout.textRepositoryName.text = repository.name
             layout.textLanguage.text = repository.language
         }
 
-        private fun setClickListener(repository: RepositoryDTO) {
+        private fun setClickListener(repository: RepositoryD) {
             layout.repositoryRoot.setOnClickListener { onRepositoryClick?.invoke(repository) }
         }
     }

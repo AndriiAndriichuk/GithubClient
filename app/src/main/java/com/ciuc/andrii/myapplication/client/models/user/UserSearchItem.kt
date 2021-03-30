@@ -6,7 +6,6 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class UserSearchItem (
-
 	@SerializedName("login") val login : String,
 	@SerializedName("id") val id : Int,
 	@SerializedName("node_id") val node_id : String,

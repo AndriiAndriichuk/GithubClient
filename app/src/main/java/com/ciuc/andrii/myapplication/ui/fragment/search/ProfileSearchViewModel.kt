@@ -1,6 +1,5 @@
 package com.ciuc.andrii.myapplication.ui.fragment.search
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.ciuc.andrii.myapplication.client.models.user.UserSearchItem
 import com.ciuc.andrii.myapplication.client.models.user.UserSearchResponse
@@ -18,6 +17,7 @@ class ProfileSearchViewModel(
 ) : ViewModel() {
 
     var usersLiveData = SingleLiveEvent<List<UserSearchItem>>()
+    var errorLiveData = SingleLiveEvent<String>()
 
     fun getUsers(query: String) {
         if (query.isEmpty()) searchUsersWithoutQuery()
@@ -34,6 +34,7 @@ class ProfileSearchViewModel(
                 usersLiveData.value = result.items
             }, { error ->
                 Timber.d("repositories error -> %s", error)
+                errorLiveData.postValue(error.message)
             })
     }
 
@@ -47,6 +48,7 @@ class ProfileSearchViewModel(
                 usersLiveData.value = result
             }, { error ->
                 Timber.d("repositories error -> %s", error)
+                errorLiveData.postValue(error.message)
             })
     }
 }

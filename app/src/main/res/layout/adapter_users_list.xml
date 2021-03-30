@@ -5,9 +5,9 @@
     <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="12dp">
+            android:layout_margin="@dimen/margin_10"
+            app:cardCornerRadius="@dimen/corner_5"
+            app:cardElevation="@dimen/elevation_12">
 
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/itemRootView"
@@ -16,28 +16,28 @@
                 android:background="@drawable/bg_ripple_light"
                 android:clickable="true"
                 android:focusable="true"
-                android:paddingStart="32dp"
-                android:paddingEnd="24dp">
+                android:paddingStart="@dimen/padding_32"
+                android:paddingEnd="@dimen/padding_24">
 
             <ImageView
                     android:id="@+id/imageUserAvatar"
-                    android:layout_width="72dp"
-                    android:layout_height="72dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_width="@dimen/width_72"
+                    android:layout_height="@dimen/height_72"
+                    android:layout_marginTop="@dimen/margin_16"
+                    android:layout_marginBottom="@dimen/margin_16"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                     android:id="@+id/textUserName"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/match_constraint"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
+                    android:layout_marginStart="@dimen/margin_12"
                     android:fontFamily="@font/montserrat_bold"
                     android:gravity="start"
                     android:textColor="@color/xeros_grey"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/text_size_16"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageUserAvatar"

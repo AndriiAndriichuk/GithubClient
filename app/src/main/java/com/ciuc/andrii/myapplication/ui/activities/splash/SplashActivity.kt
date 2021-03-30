@@ -1,8 +1,8 @@
 package com.ciuc.andrii.myapplication.ui.activities.splash
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.ciuc.andrii.myapplication.R
 import com.ciuc.andrii.myapplication.ui.activities.main.MainActivity
 import kotlinx.coroutines.CoroutineScope

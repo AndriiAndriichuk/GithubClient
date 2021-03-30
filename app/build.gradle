@@ -23,6 +23,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions "server", "app"
+
+    productFlavors {
+        dev {
+            dimension 'server'
+            buildConfigField "String", "API_BASE_URL", "\"https://api.github.com\""
+            resValue "string", "intercept_host", "api.github.com"
+        }
+        app {
+            dimension 'app'
+        }
+    }
+
     dataBinding {
         enabled true
     }

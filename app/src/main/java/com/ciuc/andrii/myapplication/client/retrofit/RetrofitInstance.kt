@@ -1,6 +1,6 @@
 package com.ciuc.andrii.myapplication.client.retrofit
 
-import com.ciuc.andrii.myapplication.utils.Constants.Companion.BASE_URL
+import com.ciuc.andrii.myapplication.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -19,7 +19,7 @@ object RetrofitInstance {
             .build()
 
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(BuildConfig.API_BASE_URL)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)

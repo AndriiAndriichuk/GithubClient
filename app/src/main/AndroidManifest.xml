@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-            android:name=".App"
+            android:name=".GitHubApplication"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
@@ -15,7 +15,7 @@
             android:theme="@style/AppTheme">
         <activity
                 android:name="com.ciuc.andrii.myapplication.ui.activities.main.MainActivity"
-                android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
+                android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
 
         <activity
                 android:name=".ui.activities.splash.SplashActivity"

@@ -1,4 +1,4 @@
-package com.ciuc.andrii.myapplication.client.models.gh_repository
+package com.ciuc.andrii.myapplication.client.models.repository
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

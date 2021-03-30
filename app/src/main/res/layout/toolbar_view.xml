@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbarUserInfo"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:gravity="center"
+        android:background="@color/white">
+
+    <ImageView
+            android:id="@+id/imageBack"
+            android:layout_width="@dimen/width_48"
+            android:layout_height="@dimen/height_48"
+            android:background="@drawable/bg_ripple_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="@dimen/padding_12"
+            android:src="@drawable/ic_arrow_back" />
+
+    <TextView
+            android:id="@+id/toolbarTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/montserrat_bold"
+            android:gravity="center"
+            android:textColor="@color/gitHubBlack"
+            android:textSize="@dimen/text_size_18" />
+</FrameLayout>

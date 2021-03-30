@@ -5,43 +5,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            android:padding="10dp">
+            android:padding="@dimen/padding_10">
 
-        <FrameLayout
+        <com.ciuc.andrii.myapplication.ui.custom_views.ToolBarView
                 android:id="@+id/toolbarUserInfo"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:gravity="center"
+                android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                    android:id="@+id/imageBack"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:padding="12dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:background="@drawable/bg_ripple_button"
-                    android:src="@drawable/ic_arrow_back" />
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/montserrat_bold"
-                    android:gravity="center"
-                    android:text="@string/profile"
-                    android:textColor="@color/gitHubBlack"
-                    android:textSize="18sp" />
-        </FrameLayout>
+                app:layout_constraintTop_toTopOf="parent"
+                app:titleText="@string/profile"/>
 
         <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageUser"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="22dp"
+                android:layout_width="@dimen/width_150"
+                android:layout_height="@dimen/height_150"
+                android:layout_marginTop="@dimen/margin_22"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/toolbarUserInfo" />
@@ -52,9 +31,9 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_bold"
                 android:textColor="@color/gitHubBlack"
-                android:textSize="20sp"
-                android:layout_marginTop="22dp"
-                android:layout_marginBottom="22dp"
+                android:textSize="@dimen/text_size_20"
+                android:layout_marginTop="@dimen/margin_22"
+                android:layout_marginBottom="@dimen/margin_22"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageUser" />
@@ -67,9 +46,9 @@
                 android:checked="true"
                 android:fontFamily="@font/montserrat_medium"
                 android:text="@string/see_on_web"
-                android:padding="8dp"
+                android:padding="@dimen/padding_8"
                 android:textColor="@color/gitHubBlue"
-                android:textSize="14sp"
+                android:textSize="@dimen/text_size_14"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textUserName" />
 
@@ -80,14 +59,14 @@
                 android:fontFamily="@font/montserrat_bold"
                 android:text="@string/repositories"
                 android:textColor="@color/gitHubGrey"
-                android:textSize="16sp"
+                android:textSize="@dimen/text_size_16"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textSeeOnWeb" />
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewFollowers"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="@dimen/match_constraint"
                 android:layout_marginTop="@dimen/margin_12"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"

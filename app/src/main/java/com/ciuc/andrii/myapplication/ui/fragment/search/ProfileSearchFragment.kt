@@ -17,10 +17,9 @@ import com.ciuc.andrii.myapplication.R
 import com.ciuc.andrii.myapplication.client.models.user.UserSearchItem
 import com.ciuc.andrii.myapplication.databinding.FragmentProfileListBinding
 import com.ciuc.andrii.myapplication.ui.fragment.base.BaseFragment
+import com.ciuc.andrii.myapplication.ui.fragment.base.navOptionsBuilder
 import com.ciuc.andrii.myapplication.ui.fragment.search.adapter.UsersAdapter
-import com.ciuc.andrii.myapplication.utils.gone
-import com.ciuc.andrii.myapplication.utils.show
-import com.ciuc.andrii.myapplication.utils.toast
+import com.ciuc.andrii.myapplication.utils.*
 import org.koin.android.ext.android.inject
 
 class ProfileSearchFragment : BaseFragment() {
@@ -39,11 +38,12 @@ class ProfileSearchFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        view.setupUIForHideKeyboard(requireContext())
+
         setUpView()
         setOnClickListeners()
         subscribeToLiveData()
 
-        searchUsers("")
     }
 
     private fun setUpView() {
@@ -53,14 +53,22 @@ class ProfileSearchFragment : BaseFragment() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        val query = layout.editSearchRepositories.text.toString()
+        searchUsers(query)
+    }
+
     private fun setOnClickListeners() {
         layout.btnSearch.setOnClickListener {
             searchUsers(layout.editSearchRepositories.text.toString())
+            requireContext().hideKeyboard()
         }
 
         layout.editSearchRepositories.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 searchUsers(layout.editSearchRepositories.text.toString())
+                requireContext().hideKeyboard()
                 true
             } else {
                 false
@@ -74,7 +82,7 @@ class ProfileSearchFragment : BaseFragment() {
                 if (connectivityManager.isOnline) {
                     viewModel.getUsers(s.toString())
                 } else {
-                    requireContext().toast(resources.getString(R.string.you_dont_have_internet))
+                    toast(resources.getString(R.string.you_dont_have_internet))
                 }
             }
 
@@ -83,6 +91,7 @@ class ProfileSearchFragment : BaseFragment() {
 
         adapter.onUserClickListener = { user ->
             openProfileInfo(user)
+            requireContext().hideKeyboard()
         }
     }
 
@@ -98,28 +107,25 @@ class ProfileSearchFragment : BaseFragment() {
                 layout.layoutNoSearch.show()
             }
         })
+
+        viewModel.errorLiveData.observe(requireActivity(), androidx.lifecycle.Observer {
+            toast(it)
+        })
     }
 
 
     private fun searchUsers(text: String) {
-        hideSoftKeyboard(layout.editSearchRepositories)
         if (connectivityManager.isOnline) {
             viewModel.getUsers(text)
         } else {
-            requireContext().toast(resources.getString(R.string.you_dont_have_internet))
+            toast(resources.getString(R.string.you_dont_have_internet))
         }
     }
 
     private fun openProfileInfo(userSearchItem: UserSearchItem) {
         val direction =
             ProfileSearchFragmentDirections.toProfileInfoFragment(userSearchItem)
-        findNavController().navigate(direction)
-    }
-
-    private fun hideSoftKeyboard(view: View) {
-        val imm =
-            requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(view.windowToken, 0)
+        findNavController().navigate(direction/*.actionId, null, navOptionsBuilder.build()*/)
     }
 
 

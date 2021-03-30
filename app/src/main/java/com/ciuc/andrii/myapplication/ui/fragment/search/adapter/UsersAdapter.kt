@@ -31,6 +31,7 @@ class UsersAdapter :
     }
 
     fun setData(items: List<UserSearchItem>){
+        list = listOf()
         list = items
         notifyDataSetChanged()
     }

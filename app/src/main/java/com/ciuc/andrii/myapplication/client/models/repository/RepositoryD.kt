@@ -1,16 +1,16 @@
-package com.ciuc.andrii.myapplication.client.models.gh_repository
+package com.ciuc.andrii.myapplication.client.models.repository
 
 import android.os.Parcelable
-import com.ciuc.andrii.myapplication.client.models.owner.Owner
+import com.ciuc.andrii.myapplication.client.models.user.UserSearchItem
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-class RepositoryDTO(
+class RepositoryD(
     @SerializedName("id") var id: Int? = 0,
     @SerializedName("name") var name: String?,
     @SerializedName("full_name") var fullName: String?,
-    @SerializedName("owner") var owner: Owner?,
+    @SerializedName("owner") var owner: UserSearchItem?,
     @SerializedName("private") var _private: Boolean? = false,
     @SerializedName("html_url") var htmlUrl: String?,
     @SerializedName("description") var description: String?,

@@ -20,7 +20,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/gitHubBlack"
+                    android:background="@color/white"
                     android:orientation="horizontal"
                     android:paddingTop="@dimen/padding_0"
                     android:paddingBottom="@dimen/padding_0">
@@ -39,7 +39,7 @@
                         android:focusable="true"
                         android:padding="@dimen/padding_7"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/ic_github"
+                        android:src="@drawable/ic_github_splash"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/editSearchRepositories"
                         app:layout_constraintStart_toStartOf="parent"
@@ -57,6 +57,7 @@
                         android:inputType="textNoSuggestions"
                         android:paddingStart="@dimen/padding_15"
                         android:paddingEnd="@dimen/padding_0"
+                        android:fontFamily="@font/montserrat_regular"
                         android:singleLine="true"
                         android:textColor="@color/gitHubText"
                         android:textColorHint="@color/gitHubHint"
@@ -110,8 +111,8 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="22dp"
-                    android:layout_marginEnd="22dp"
+                    android:layout_marginStart="@dimen/margin_22"
+                    android:layout_marginEnd="@dimen/margin_22"
                     android:gravity="center"
                     android:maxLines="2"
                     android:text="@string/sorry_there_are_no_search_results_please_try_a_different_search" />

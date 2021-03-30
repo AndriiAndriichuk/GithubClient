@@ -7,13 +7,13 @@ import com.facebook.stetho.Stetho
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
-class App : Application() {
+class GitHubApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
 
         startKoin {
-            this.androidContext(this@App)
+            this.androidContext(this@GitHubApplication)
             modules(repositoryModule, viewModelModule)
         }
 

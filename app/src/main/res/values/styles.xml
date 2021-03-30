@@ -20,4 +20,8 @@
         <item name="android:windowBackground">@drawable/splash</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
+
+    <declare-styleable name="ToolBarView">
+        <attr name="titleText" format="string" />
+    </declare-styleable>
 </resources>

@@ -2,6 +2,8 @@ package com.ciuc.andrii.myapplication.repository
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.provider.SyncStateContract
+import com.ciuc.andrii.myapplication.utils.SHARED_PREFERENCES_NAME
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import java.io.Serializable
@@ -10,10 +12,7 @@ import kotlin.reflect.KProperty
 
 class SharedStorage(context: Context) {
 
-    private val SHARED_PREFERENCES_NAME = "usersPref"
-
-    private var sharedPreferences: SharedPreferences =
-        context.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE)
+    private var sharedPreferences: SharedPreferences = context.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE)
     private var gson: Gson? = null
 
     init {

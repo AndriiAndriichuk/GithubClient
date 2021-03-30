@@ -20,4 +20,5 @@
     <string name="user_not_have_repos">The user doesn\'t have repositories.</string>
     <string name="sorry_there_are_no_search_results_please_try_a_different_search">Sorry, there are no search results. Please try a different search</string>
     <string name="search_users">Search users</string>
+    <string name="web_browser">Web browser</string>
 </resources>

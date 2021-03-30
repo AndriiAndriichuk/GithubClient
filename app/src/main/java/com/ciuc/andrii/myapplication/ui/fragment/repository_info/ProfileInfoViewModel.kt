@@ -2,7 +2,7 @@ package com.ciuc.andrii.myapplication.ui.fragment.repository_info
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.ciuc.andrii.myapplication.client.models.gh_repository.RepositoryDTO
+import com.ciuc.andrii.myapplication.client.models.repository.RepositoryD
 import com.ciuc.andrii.myapplication.repository.ProductRepositoryImpl
 import com.ciuc.andrii.myapplication.repository.SharedStorage
 import com.ciuc.andrii.myapplication.utils.SingleLiveEvent
@@ -15,18 +15,20 @@ class ProfileInfoViewModel(private var dataRepository: ProductRepositoryImpl,
                            private val sharedStorage: SharedStorage
 ) : ViewModel() {
 
-    var repositoriesLiveData = SingleLiveEvent<List<RepositoryDTO>>()
+    var repositoriesLiveData = SingleLiveEvent<List<RepositoryD>>()
+    var errorLiveData = SingleLiveEvent<String>()
 
-    fun getRepositories(userName: String): LiveData<List<RepositoryDTO>> {
-        val result: Single<List<RepositoryDTO>> = dataRepository.getRepositories(userName)
+    fun getRepositories(userName: String): LiveData<List<RepositoryD>> {
+        val result: Single<List<RepositoryD>> = dataRepository.getRepositories(userName)
 
-        result.subscribeOn(Schedulers.io())
+        val res = result.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ result ->
                 Timber.d("subscribers -> %s", result.toString())
                 repositoriesLiveData.value = result
             }, { error ->
                 Timber.d("subscribers error -> %s", error)
+                errorLiveData.postValue(error.message)
             })
         return repositoriesLiveData
     }

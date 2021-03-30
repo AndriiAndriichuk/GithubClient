@@ -17,8 +17,10 @@ import com.ciuc.andrii.myapplication.R
 import com.ciuc.andrii.myapplication.client.models.user.UserSearchItem
 import com.ciuc.andrii.myapplication.databinding.FragmentProfileInfoBinding
 import com.ciuc.andrii.myapplication.ui.fragment.base.BaseFragment
+import com.ciuc.andrii.myapplication.ui.fragment.base.navOptionsBuilder
 import com.ciuc.andrii.myapplication.ui.fragment.repository_info.adapter.RepositoryAdapter
 import com.ciuc.andrii.myapplication.utils.gone
+import com.ciuc.andrii.myapplication.utils.setupUIForHideKeyboard
 import com.ciuc.andrii.myapplication.utils.show
 import com.ciuc.andrii.myapplication.utils.toast
 import org.koin.android.ext.android.inject
@@ -46,6 +48,8 @@ class ProfileInfoFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        view.setupUIForHideKeyboard(requireContext())
 
         setUpView()
         setOnClickListeners()
@@ -81,7 +85,7 @@ class ProfileInfoFragment : BaseFragment() {
         layout.textSeeOnWeb.setOnClickListener {
             openWebBrowser(currentProfile?.html_url.toString())
         }
-        layout.imageBack.setOnClickListener {
+        layout.toolbarUserInfo.onBackClickListener = {
             findNavController().popBackStack()
         }
         adapter.onRepositoryClick = { openWebBrowser(it.htmlUrl.toString()) }
@@ -95,8 +99,12 @@ class ProfileInfoFragment : BaseFragment() {
                 layout.recyclerViewFollowers.adapter = adapter
             } else {
                 layout.textRepositoriesTitle.gone()
-                requireContext().toast(getString(R.string.user_not_have_repos))
+                toast(getString(R.string.user_not_have_repos))
             }
+        })
+
+        viewModel.errorLiveData.observe(requireActivity(), androidx.lifecycle.Observer {
+            toast(it)
         })
     }
 
@@ -104,12 +112,12 @@ class ProfileInfoFragment : BaseFragment() {
         if (connectivityManager.isOnline) {
             viewModel.getRepositories(currentProfile?.login.toString())
         } else {
-            requireContext().toast(resources.getString(R.string.you_dont_have_internet))
+            toast(resources.getString(R.string.you_dont_have_internet))
         }
     }
 
     private fun openWebBrowser(url: String) {
         val direction = ProfileInfoFragmentDirections.toWebBrowserFragment(url)
-        findNavController().navigate(direction)
+        findNavController().navigate(direction/*.actionId, null, navOptionsBuilder.build()*/)
     }
 }

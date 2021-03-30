@@ -10,10 +10,12 @@ import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.ciuc.andrii.myapplication.R
 import com.ciuc.andrii.myapplication.databinding.FragmentWebBrowserBinding
 import com.ciuc.andrii.myapplication.ui.fragment.base.BaseFragment
+import com.ciuc.andrii.myapplication.utils.setupUIForHideKeyboard
 
 class WebBrowserFragment : BaseFragment() {
     private val args by navArgs<WebBrowserFragmentArgs>()
@@ -30,8 +32,11 @@ class WebBrowserFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        view.setupUIForHideKeyboard(requireContext())
+
         setUpWebViewConfig()
         setWebViewClients()
+        setOnClickListeners()
 
         layout.webViewFAQ.loadUrl(args.webUrl)
 
@@ -76,6 +81,12 @@ class WebBrowserFragment : BaseFragment() {
                     super.onReceivedTitle(view, title)
                 }
             }
+        }
+    }
+
+    private fun setOnClickListeners(){
+        layout.toolbarWebBrowser.onBackClickListener = {
+            findNavController().popBackStack()
         }
     }
 }
